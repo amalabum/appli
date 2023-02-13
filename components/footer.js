@@ -15,7 +15,7 @@ const Footer = () => {
                 <img src="/icons/facebook-circular-logo.png" alt="" />
               </a>
             </li>
-            <li class="">
+            <li>
               {" "}
               <a href="">
                 <img src="/icons/instagram.png" alt="" />

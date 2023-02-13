@@ -21,7 +21,7 @@ const Nav_bar = () => {
               <img src="/icons/facebook-circular-logo.png" alt="" />
             </a>
           </li>
-          <li class="">
+          <li className="">
             {" "}
             <a href="">
               <img src="/icons/instagram.png" alt="" />

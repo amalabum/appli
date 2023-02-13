@@ -34,7 +34,6 @@ export default function Home() {
           <div className={styles.container}>
             <div className={`${styles["element"]} ${styles["prix_1"]}`}>
               {" "}
-              {/* class=" prix_1" */}
               <div className={styles.info}>
                 <h3>
                   {" "}
