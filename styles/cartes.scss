@@ -1,0 +1,87 @@
+.cards_container {
+  @media (min-width: 674px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 70%;
+  }
+
+  position: relative;
+  width: 75%;
+  margin: auto;
+}
+.Card_livre {
+  padding-left: 10px;
+  margin-top: 6px;
+  width: 150px;
+  // display: none;
+}
+
+.cards_container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  @media (min-width: 587px) and (max-width: 996px) {
+    grid-template-columns: repeat(3, auto);
+    font-size: 11px;
+  }
+  @media (min-width: 996px) and (max-width: 1196px) {
+    grid-template-columns: repeat(4, auto);
+  }
+  @media (min-width: 1196px) and (max-width: 1296px) {
+    grid-template-columns: repeat(5, auto);
+  }
+  @media (min-width: 1296px) {
+    grid-template-columns: repeat(8, auto);
+  }
+  .Card_livre {
+    width: 100%;
+    display: inline-block;
+    .Card_livre_containt {
+      width: 130px;
+      grid-area: right;
+
+      img {
+        width: 100%;
+      }
+    }
+    .card_legende {
+      width: 140px;
+      padding-left: 10px;
+      padding-right: -10px;
+      height: auto;
+      text-transform: lowercase;
+      font-weight: normal;
+      font-size: 15px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
+@media (max-width: 379px) {
+  .Card_livre_containt {
+    width: 100px;
+  }
+}
+.couverture_a_img {
+  width: 130px;
+  float: left;
+  padding-top: 0px;
+  padding-right: +10px;
+}
+.text_livre {
+  padding: 0 0.6em;
+}
+
+.card_auth {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  .img_card_auth {
+    margin-right: 20px;
+  }
+  .bio_card_auth {
+    font-size: 13px;
+    padding-top: 4px;
+  }
+}

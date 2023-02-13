@@ -1,0 +1,202 @@
+.action_on_link {
+  font-size: 15px;
+  color: #00000f;
+}
+.call_to_action_don_livre {
+  height: 100%;
+  background-image: url("/our_lib.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  position: fixed;
+  margin-top: 0px;
+}
+/**
+ * ----------------------------------------
+ * soirée littéraire
+ * ----------------------------------------
+ */
+.intro_soiree_container {
+  position: relative;
+  width: 100%;
+  margin-top: 80px;
+  height: auto;
+  background: linear-gradient(to bottom right, #f8f8f81c, #adbbbe0b, #105f712e);
+
+  display: flex;
+  @media (min-width: 0) and (max-width: 739px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.intro_soiree_container_details {
+  .DATE {
+    top: -380px;
+    left: 80%;
+  }
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .section_img {
+    width: 100%;
+    // height: 400px;
+    object-fit: fill;
+    padding: 0 !important;
+    position: relative;
+
+    background-size: cover;
+    @media (min-width: 0) and (max-width: 739px) {
+      width: 100%;
+      min-height: 200px;
+    }
+  }
+
+  .section_text {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    background: inherit;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    padding-right: 40px;
+    padding-top: 30px;
+
+    @media (min-width: 0) and (max-width: 739px) {
+      width: 100%;
+      padding-left: 45px;
+      padding-bottom: 45px;
+      padding-right: 45px;
+      padding-top: 20px;
+    }
+
+    h3 {
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  }
+}
+.section_imgs {
+  width: 40%;
+  // height: 400px;
+  position: relative;
+  height: auto;
+  background-image: url("/pubsoireelivraze.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  @media (min-width: 0) and (max-width: 739px) {
+    width: 100%;
+    min-height: 200px;
+  }
+}
+.section_text {
+  width: 60%;
+  position: relative;
+  height: 100%;
+  background: inherit;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  @media (min-width: 0) and (max-width: 739px) {
+    width: 100%;
+    padding-left: 45px;
+    padding-bottom: 45px;
+    padding-right: 45px;
+    padding-top: 20px;
+  }
+
+  h2 {
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+}
+.DATE {
+  position: absolute;
+  width: 110px;
+  height: 80px;
+  top: 0px;
+  left: -107px;
+  background-color: #f9f9f99e;
+  color: #010101;
+  @media (min-width: 0) and (max-width: 739px) {
+    top: -80px;
+    left: 68%;
+    display: none;
+  }
+
+  .jour {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: bold;
+  }
+  .mois {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 14px;
+
+    margin-top: 4px;
+    margin-right: -100px;
+    transform: rotate(90deg);
+  }
+}
+@-webkit-keyframes background_anim {
+  0% {
+    background-color: #106071;
+  }
+  10% {
+    background-color: #106071;
+  }
+  20% {
+    background-color: #106071;
+  }
+  30% {
+    background-color: #106071;
+  }
+  40% {
+    background-color: #106071;
+  }
+  50% {
+    background-color: #106071;
+  }
+}
+.call_to_action {
+  margin-top: 40px;
+}
+.call_to_action a {
+  margin-top: 80px;
+  text-decoration: none;
+  border: 1px solid #00000f;
+  padding: 6px 13px;
+  color: #0e0d0d !important;
+}
+.call_to_action a:hover {
+  background-color: #00000f;
+  border: none;
+  color: #f8f8f8 !important;
+}
+.text_coloric {
+  color: #106071;
+}
+.dot {
+  font-size: 50px;
+}
+.caroussel_soiree {
+  height: 100%;
+}
+h5,
+h3 {
+  padding-top: 20px !important;
+}
