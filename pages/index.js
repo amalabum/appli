@@ -35,9 +35,12 @@ export default function Home({ livres_a, livres }) {
             </h1>{" "}
             <br />
             <br />
-            <a href="/collection-congolaise" className={styles.proposal_action}>
+            <Link
+              href="../collection-congolaise"
+              className={styles.proposal_action}
+            >
               lancer le processus →
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -50,7 +53,7 @@ export default function Home({ livres_a, livres }) {
           <div className={styles.relative_bloc}>
             <div className="cards_container">
               {livres?.livres?.slice(0, 10)?.map((item, index) => (
-                <Link href={`livres/${item.id}`}>
+                <Link href={`../livres/${item.id}`}>
                   <Carte_pour_livre
                     key={index}
                     nom_auteur={item.auteur}
@@ -105,7 +108,7 @@ export default function Home({ livres_a, livres }) {
           </div>
           <div className="cards_container">
             {livres?.livres?.slice(10, 20)?.map((item, index) => (
-              <Link href={`livres/${item.id}`}>
+              <Link href={`../livres/${item.id}`}>
                 <Carte_pour_livre
                   key={index}
                   nom_auteur={item.auteur}
@@ -130,10 +133,7 @@ export default function Home({ livres_a, livres }) {
     </>
   );
 }
-{
-  let url = "http://localhost/fidbagraphics/2023/janvier/livraze/back-office";
-  let online = "livraze-admin.ritach.net";
-}
+
 export const getServerSideProps = async () => {
   const res = await fetch(
     "http://livraze-admin.ritach.net/api-v1?datas=livres_all"

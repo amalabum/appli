@@ -22,7 +22,7 @@
     position: relative;
     width: 15%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     .img {
       width: 95px;
       padding-top: 10px;
@@ -40,7 +40,7 @@
   }
   .menu_principal {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     position: relative;
     width: 80%;
     @media (min-width: 0) and (max-width: 1000px) {
@@ -61,7 +61,7 @@
 
         margin-right: 100px;
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         margin-top: 19px;
       }
       @media (min-width: 0) and (max-width: 1000px) {
