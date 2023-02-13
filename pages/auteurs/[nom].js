@@ -37,13 +37,13 @@ export default function detai_livre({ livres, auteur }) {
                 />
 
                 <span>
-                  <i>{auteur.legende}...</i>
+                  <i>{auteur.legende}</i>
                 </span>
 
               </div>
               <div className="bio">
-                <h3> {auteur.nom}..</h3>
-                <p>{auteur.bio}..</p>
+                <h3> {auteur.nom}</h3>
+                <p>{auteur.bio}</p>
               </div>
             </div>
 
