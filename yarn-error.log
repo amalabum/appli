@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/local/bin/yarn add bootstrap
+  /usr/bin/node /usr/local/bin/yarn add jquery
 
 PATH: 
   /usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:/home/r00t/.dotnet/tools
