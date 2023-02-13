@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 // const inter = Inter({ subsets: ["latin"] });
-export default function abonnement({}) {
+export default function abonnement() {
   return (
     <>
       <Head>
