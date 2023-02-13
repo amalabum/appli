@@ -68,6 +68,7 @@ export default function detai_livre({ livre, livres }) {
                       /> */}
                     </div>
                     <div className="bio_card_auth">{livre.bio}</div>
+<div className="synthese_livre_n">{livre.synthese}</div>
                   </div>
                 </div>
               </div>
