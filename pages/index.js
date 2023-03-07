@@ -47,7 +47,7 @@ export default function Home({ livres_a, livres }) {
         <div className={styles.app_container}>
           <Homebaner />
           <div className="top_cinq_titre">
-            <h3>Nos collections les plus aimées</h3>
+            <h3>Nos collections les plus récentes</h3>
             Tous nos livres sont en dur...
           </div>
           <div className={styles.relative_bloc}>
