@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
+
 const unique_books = "http://livraze-admin.ritach.net/api-v1?livre=";
 const apiurls = "http://livraze-admin.ritach.net/api-v1?datas=livres_all";
 
@@ -30,73 +31,49 @@ export default function detai_livre({ livre, livres }) {
         <div className="collections_list">
           <div className="section_une">
             <div className="livre_details">
-              <div className="livre_header">
-                <div className="img_cover_details">
+              <div className="livre_containeur">
+                <div className="couverture">
                   <img
                     className=""
                     src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${livre.couverture}`}
                     alt=""
                   />
                 </div>
-                <div className="img_cover_legende">
-                  <a href={`../auteurs/${livre.authors}`}>
-                    <h6>Auteur : {livre.nom} </h6>
-                  </a>
-                  <h6> Maison d'édition : {livre.maison_d_edition}</h6>
-                  <h6> Catégorie : {livre.designation}</h6>
+                <div className="contenu">
+                  <Link href={`../auteurs/${livre.authors}`}>
+                    <h5>
+                      {livre.maison_d_edition} | par {livre.nom} |{" "}
+                      {livre.designation}
+                    </h5>
+                  </Link>
+
+                  {livre.synthese}
                   <div className={styles.Carte_pour_livre_footer_n}>
-                    <Link
-                      href="../tarifs"
-                      className={styles.Carte_pour_livre_a}
-                    >
-                      S'abonner
+                    <Link href="../tarifs" className="btn btn-success">
+                      Profiter de l'offre
                     </Link>
                     <Link
                       href={`https://wa.me/+243974242040?text=Bonjour livraze, je suis  interressé(s) par le livre :${livre.titre}, Est-il disponible pour une lecture? `}
                       className={styles.whatsapp}
                     >
                       <img src="/icons/ic_lov.png" alt="" />
-                      <span className="whatsapp_color"> intéressant </span>
+                      <span className="whatsapp_color"> Lire le livre </span>
                     </Link>
                   </div>
-                  <div className="card_auth">
-                    <div className="img_card_auth">
-                      {/* <img
-                        className=""
-                        src={`${url_img}${livre.couverture}`}
-                        alt=""
-                      /> */}
-                    </div>
-                    <div className="bio_card_auth">{livre.bio}</div>
+                </div>
+              </div>
+              <div className="synthese_livre_n"></div>
 
-                  </div>
-                </div>
+              <div className="oeuvres mt-5">
+                {" "}
+                <h4> Voir aussi </h4>{" "}
               </div>
-              <div className="synthese_livre_n">{livre.synthese}</div>
-              <div className="synth_livre">
-                <div className={styles.Carte_pour_livre_footer_n}>
-                  <Link href="../tarifs" className="btn btn-success">
-                    Profiter de l'offre
-                  </Link>
-                  <Link
-                    href={`https://wa.me/+243974242040?text=Bonjour livraze, je suis  interressé(s) par le livre :${livre.titre}, Est-il disponible pour une lecture? `}
-                    className={styles.whatsapp}
-                  >
-                    <img src="/icons/ic_lov.png" alt="" />
-                    <span className="whatsapp_color">
-                      {" "}
-                      je veux lire ce livre{" "}
-                    </span>
-                  </Link>
-                </div>
-              </div>
-              <div className="voir_aussi"> Vous pouvez aimer ceci aussi </div>
               <div className="cards_container ">
                 {livres?.livres?.slice(0, 5)?.map((item, index) => (
                   <Link href={`${item.id}`}>
                     <Carte_pour_livre
                       key={index}
-                      nom_auteur={item.auteur}
+                      nom_auteur={item.nom}
                       auteur_img_src="/icons/ecrivain.png"
                       titre_l={item.titre}
                       livre_img_src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
@@ -121,14 +98,21 @@ export default function detai_livre({ livre, livres }) {
               </Link>
             </div>
             <div className="categories">
-              <h3> Plus consultés </h3>
-              <ul>
-                {livres?.livres?.slice(0, 5)?.map((item, index) => (
-                  <Link href={`../livres/${item.id}`}>
-                    <li>{item.titre} → </li>
+              <h3 className="pb-5">Voir aussi </h3>
+              <div className="livres_annexed">
+                {livres?.livres?.slice(5, 12)?.map((item, index) => (
+                  <Link href={`../livres/${item.id}`} className="titre_text">
+                    <img
+                      className=""
+                      src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
+                      alt=""
+                      width={39}
+                    />
+
+                    <div className=""> {item.titre} → </div>
                   </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>

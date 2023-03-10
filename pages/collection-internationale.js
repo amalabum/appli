@@ -70,6 +70,7 @@ export default function livres({ livres }) {
                   <Link href={`livres/${item.id}`}>
                     <img
                       className="couverture_img"
+                      // src={`http://localhost/fidbagraphics/2023/janvier/livraze/back-office/Views/uploads-images/nos_livres/${item.couverture}`}
                       src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
                       alt=""
                     />
@@ -81,7 +82,7 @@ export default function livres({ livres }) {
                   </h3>
 
                   <h5 className="categorie_name">
-                    Categorie : {item.designation}, Msn d'édition:
+                    Categorie : {item.designation} | Maison d'édition:
                     {item.maison_d_edition}
                   </h5>
 
@@ -121,13 +122,19 @@ export default function livres({ livres }) {
             </div>
             <div className="categories">
               <h3>Les plus consultés </h3>
-              <ul>
-                {livres?.livres?.slice(7, 9)?.map((item, index) => (
-                  <Link href={`livres/${item.id}`}>
-                    <li>{item.titre} → </li>
+              <div className="livres_annexed">
+                {livres?.livres?.slice(10, 16)?.map((item, index) => (
+                  <Link href={`../livres/${item.id}`} className="titre_text">
+                    <img
+                      className="height_70"
+                      src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
+                      alt=""
+                    />
+
+                    <div className="titre_d_oeuvre"> {item.titre} → </div>
                   </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>

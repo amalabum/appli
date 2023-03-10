@@ -116,14 +116,20 @@ export default function livres({ livres }) {
               </Link>
             </div>
             <div className="categories">
-              <h3>Les plus consultés </h3>
-              <ul>
-                {livres?.livres?.slice(7, 9)?.map((item, index) => (
-                  <Link href={`livres/${item.id}`}>
-                    <li>{item.titre} → </li>
+              <h3>Voir aussi </h3>
+              <div className="livres_annexed">
+                {livres?.livres?.slice(10, 16)?.map((item, index) => (
+                  <Link href={`../livres/${item.id}`} className="titre_text">
+                    <img
+                      className="height_70"
+                      src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
+                      alt=""
+                    />
+
+                    <div className="titre_d_oeuvre"> {item.titre} → </div>
                   </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>

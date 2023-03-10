@@ -10,11 +10,13 @@ import Carte_pour_livre from "@/components/collection_congolaise";
 import Navbar from "@/components/header";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import Popup_collections from "@/components/popup_collections";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-
-export default function detai_livre({ livres, auteur }) {
+export default function detai_livre({ livres, auteur, livresannexs }) {
+  const [buttonPopup, setButtonPopup] = useState(false);
   return (
     <>
       <Head>
@@ -25,6 +27,20 @@ export default function detai_livre({ livres, auteur }) {
       </Head>
       <main className={styles.main}>
         <Navbar />
+        <Popup_collections trigger={buttonPopup} setTrigger={setButtonPopup}>
+          <Link
+            href="../collection-congolaise"
+            className="collection_congolaise"
+          >
+            COLLECTION CONGOLAISE →
+          </Link>
+          <Link
+            href="../collection-internationale"
+            className="collection_etrangère"
+          >
+            COLLECTION ETRANGRERE →
+          </Link>
+        </Popup_collections>
 
         <div className="collections_list">
           <div className="section_une">
@@ -39,14 +55,12 @@ export default function detai_livre({ livres, auteur }) {
                 <span>
                   <i>{auteur.legende}</i>
                 </span>
-
               </div>
               <div className="bio">
                 <h3> {auteur.nom}</h3>
                 <p>{auteur.bio}</p>
               </div>
             </div>
-
           </div>
 
           <div className="section_deux">
@@ -63,37 +77,50 @@ export default function detai_livre({ livres, auteur }) {
               </Link>
             </div>
             <div className="categories">
-              <h3> Plus consultés </h3>
-              <ul>
-                {livres?.livres?.slice(0, 5)?.map((item, index) => (
-                  <Link href={`../livres/${item.id}`}>
-                    <li>{item.titre} → </li>
+              {/* <h3 className="pb-5">Voir aussi</h3> */}
+              <div className="livres_annexed">
+                {livresannexs?.livresannexs?.slice(0, 5)?.map((item, index) => (
+                  <Link href={`../livres/${item.id}`} className="titre_text">
+                    <img
+                      className="height_70"
+                      src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
+                      alt=""
+                    />
+
+                    <div className=""> {item.titre} → </div>
                   </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
-        <div className="voir_aussi">
+        <div className="oeuvres">
           {" "}
-          <h5> Vous pouvez aimer ceci aussi</h5>
+          <h5> Oeuvres de {auteur.nom}</h5>
         </div>
-        <div className="cards_container">
-          {livres?.livres?.slice(0, 9)?.map((item, index) => (
-            <Link href={`../livres/${item.id}`}>
-              <Carte_pour_livre
-                key={index}
-                nom_auteur={item.auteur}
-                auteur_img_src="/icons/ecrivain.png"
-                titre_l={item.titre}
-                livre_img_src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
-              />
-            </Link>
-          ))}
+        <div className="cards_container_n">
+          <div className="livres_annexed">
+            {livres?.livres?.slice(0, 5)?.map((item, index) => (
+              <Link href={`../livres/${item.id}`} className="titre_text">
+                <img
+                  className="height_70"
+                  src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
+                  alt=""
+                />
+
+                <div className="titre_d_oeuvre"> {item.titre} → </div>
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="toutes_les_collections">
-          <Link href="../collection-congolaise">Autres collections →</Link>
+          <button
+            onClick={() => setButtonPopup(true)}
+            className="button_for_popup"
+          >
+            Voir toutes Nos collections →
+          </button>
         </div>
 
         <Footer />
@@ -111,17 +138,21 @@ export const getServerSideProps = async ({ params }) => {
     `http://livraze-admin.ritach.net/api-v1?auteur=${nom}`
   );
   const resquest_for_all_books = await fetch(
-    "http://livraze-admin.ritach.net/api-v1?datas=livres_all"
+    `http://livraze-admin.ritach.net/api-v1?livres_by_auteur=${nom}`
+  );
+  const annex_response = await fetch(
+    "http://livraze-admin.ritach.net/api-v1?datas=livres_congolais"
   );
 
   const auteur = await request_for_unique.json();
   const livres = await resquest_for_all_books.json();
-  console.log("auteur: ", auteur);
+  const livresannexs = await annex_response.json();
+  console.log("auteur: ", livresannexs);
   return {
     props: {
       auteur,
       livres,
+      livresannexs,
     },
   };
 };
-

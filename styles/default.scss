@@ -1,4 +1,121 @@
 .default_div {
-  width: 65%;
-  margin-top: 60px;
+  // width: 65%;
+  // margin-top: 60px;
+}
+.button_for_popup {
+  outline: 0;
+  border: 0;
+  padding: 14px 25px;
+  border-radius: 60px;
+  margin-bottom: 30px;
+  font-size: 17px;
+  font-weight: 500;
+  background-color: transparent;
+  border: 1px solid black;
+}
+.deux_collections {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(17, 16, 16, 0.575);
+
+  // filter: blur(30px);
+  position: fixed;
+  z-index: 2000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  // .collection_congolaise {
+  // }
+  // .collection_etrangère {
+  // }
+  .SUB_collections {
+    background-color: #000000e0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 399px;
+    transition: 2s;
+    @media (max-width: 1000px) {
+      width: 90%;
+    }
+    .btn_close {
+      width: 100%;
+
+      background: none;
+      position: relative;
+      right: 0;
+      text-align: right;
+      padding-top: 10px;
+      padding-right: 20px;
+      .btn_close_span {
+        padding: 10px 10px;
+        border-radius: 50%;
+        margin-bottom: -30px;
+        color: #ffff;
+      }
+      top: -25%;
+      outline: none;
+      bottom: none;
+      border: 0;
+    }
+  }
+  .collection_congolaise {
+    margin-top: -30px;
+  }
+  .collection_congolaise,
+  .collection_etrangère {
+    border-radius: 60px;
+    @media (max-width: 1000px) {
+      padding: 20px 60px;
+    }
+
+    padding: 13px 60px;
+    font-size: 18px;
+    background-color: #c04a4a;
+    transition: 0.1s;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #ffffff !important;
+    font-size: 14px;
+  }
+  .proposal_action:hover {
+    border-radius: 60px;
+    border: none;
+    padding: 10px 20px;
+    background-color: #893232;
+    padding: 10px 35px;
+    transition: 0.1s;
+    font-size: 17px;
+    color: #ffffff !important;
+  }
+}
+.oeuvres {
+  position: relative;
+  width: 100%;
+  margin-top: 20px !important;
+  h5 {
+    padding-left: 15%;
+    padding-bottom: 20px;
+  }
+}
+.height_70 {
+  height: 90px;
+}
+.cards_container_n {
+  width: 70%;
+  .titre_d_oeuvre {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

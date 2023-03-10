@@ -5,6 +5,12 @@
   .section_une {
     width: 75%;
     color: #000;
+    background-color: rgb(247, 245, 245);
+    border-radius: 30px;
+    padding: 1.5em 1.5em;
+    @media (max-width: 782px) {
+      padding: 0.5em 0.5em;
+    }
     .livre {
       margin-top: 20px;
       width: 100%;
@@ -40,6 +46,7 @@
   }
   .section_deux {
     width: 25%;
+    padding-left: 30px;
   }
   .caroussels_img {
     display: flex;
@@ -128,6 +135,16 @@
   margin-left: 10px;
   margin-top: 40px;
   padding-right: 10px;
+  .livres_annexed {
+    img {
+      max-height: 70px;
+    }
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+
   h3 {
     font-size: 19px;
     font-weight: bold;
@@ -158,6 +175,18 @@
     transition: 0.5s;
   }
 }
+.titre_text {
+  h3 {
+    padding-right: 40px;
+  }
+  margin-bottom: 20px;
+  text-decoration: none;
+  display: flex;
+  img {
+    margin-right: 10px;
+  }
+}
+
 .syhth_liv {
   font-size: 15px;
   margin-bottom: 10px;
@@ -209,23 +238,44 @@
   position: relative;
   width: 100%;
 }
-.livre_header {
+.livre_containeur {
+  width: 100%;
   display: flex;
-  .img_cover_legende {
-    padding-top: 0px;
-    font-size: 18px;
+  // .img_cover_legende {
+  //   padding-top: 0px;
+  //   font-size: 18px;
+  // }
+  .couverture {
+    width: 30%;
+    // background-color: red;
+    position: relative;
+    img {
+      width: 90%;
+    }
+  }
+  .contenu {
+    h5 {
+      margin-top: -20px;
+      padding-bottom: 10px;
+      font-size: 23px;
+      color: #20183d;
+    }
+    width: 70%;
+    // background-color: blue;
+    padding: 0em 1.5em;
+    position: relative;
   }
 }
-.img_cover_details {
-  width: 30%;
-  img {
-    width: 90%;
-  }
-}
-.synthese_livre_n {
-  width: 90%;
-  margin-top: 30px;
-}
-.cards_container {
-  padding-bottom: 20px;
-}
+// .img_cover_details {
+//   width: 30%;
+//   img {
+//     width: 90%;
+//   }
+// }
+// .synthese_livre_n {
+//   width: 90%;
+//   margin-top: 30px;
+// }
+// .cards_container {
+//   padding-bottom: 20px;
+// }

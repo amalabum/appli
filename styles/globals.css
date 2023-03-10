@@ -95,7 +95,9 @@
 :root {
   /* --max-width: 1100px; */
   --border-radius: 12px;
-  --font-mono: "Quicksand" sans-serif;
+  --font-mono: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
   --foreground-rgb: 1, 1, 1;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -183,14 +185,12 @@ body {
 
 a {
   color: #1b1b1b !important;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: 0.3s;
 }
 a :hover {
-  color: #000000;
+  color: #332669;
   cursor: pointer !important;
-  font-weight: bold;
-  font-size: 15px;
   transition: 0.3s;
 }
 
@@ -597,7 +597,13 @@ a :hover {
   display: inline-block;
 }
 .cards_container .Card_livre .Card_livre_containt {
-  width: 130px;
+  background-color: #f8f8f8;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 140px;
+  height: 190px;
   grid-area: right;
 }
 .cards_container .Card_livre .Card_livre_containt img {
@@ -613,6 +619,7 @@ a :hover {
   font-size: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
 
 @media (max-width: 379px) {
@@ -732,7 +739,7 @@ a :hover {
   width: 40%;
   position: relative;
   height: auto;
-  background-image: url("/pubsoireelivraze.png");
+  background-image: url("/prese.jpg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -869,6 +876,14 @@ h3 {
 .collections_list .section_une {
   width: 75%;
   color: #000;
+  background-color: rgb(247, 245, 245);
+  border-radius: 30px;
+  padding: 1.5em 1.5em;
+}
+@media (max-width: 782px) {
+  .collections_list .section_une {
+    padding: 0.5em 0.5em;
+  }
 }
 .collections_list .section_une .livre {
   margin-top: 20px;
@@ -902,6 +917,7 @@ h3 {
 }
 .collections_list .section_deux {
   width: 25%;
+  padding-left: 30px;
 }
 .collections_list .caroussels_img {
   display: flex;
@@ -984,6 +1000,15 @@ h3 {
   margin-top: 40px;
   padding-right: 10px;
 }
+.categories .livres_annexed {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.categories .livres_annexed img {
+  max-height: 70px;
+}
 .categories h3 {
   font-size: 19px;
   font-weight: bold;
@@ -1004,6 +1029,18 @@ h3 {
   border-radius: 3px;
   cursor: pointer;
   transition: 0.5s;
+}
+
+.titre_text {
+  margin-bottom: 20px;
+  text-decoration: none;
+  display: flex;
+}
+.titre_text h3 {
+  padding-right: 40px;
+}
+.titre_text img {
+  margin-right: 10px;
 }
 
 .syhth_liv {
@@ -1066,33 +1103,145 @@ h3 {
   width: 100%;
 }
 
-.livre_header {
+.livre_containeur {
+  width: 100%;
   display: flex;
 }
-.livre_header .img_cover_legende {
-  padding-top: 0px;
-  font-size: 18px;
-}
-
-.img_cover_details {
+.livre_containeur .couverture {
   width: 30%;
+  position: relative;
 }
-.img_cover_details img {
+.livre_containeur .couverture img {
   width: 90%;
 }
-
-.synthese_livre_n {
-  width: 90%;
-  margin-top: 30px;
+.livre_containeur .contenu {
+  width: 70%;
+  padding: 0em 1.5em;
+  position: relative;
+}
+.livre_containeur .contenu h5 {
+  margin-top: -20px;
+  padding-bottom: 10px;
+  font-size: 23px;
+  color: #20183d;
 }
 
-.cards_container {
+.button_for_popup {
+  outline: 0;
+  border: 0;
+  padding: 14px 25px;
+  border-radius: 60px;
+  margin-bottom: 30px;
+  font-size: 17px;
+  font-weight: 500;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.deux_collections {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(17, 16, 16, 0.575);
+  position: fixed;
+  z-index: 2000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.deux_collections .SUB_collections {
+  background-color: rgba(0, 0, 0, 0.8784313725);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  height: 399px;
+  transition: 2s;
+}
+@media (max-width: 1000px) {
+  .deux_collections .SUB_collections {
+    width: 90%;
+  }
+}
+.deux_collections .SUB_collections .btn_close {
+  width: 100%;
+  background: none;
+  position: relative;
+  right: 0;
+  text-align: right;
+  padding-top: 10px;
+  padding-right: 20px;
+  top: -25%;
+  outline: none;
+  bottom: none;
+  border: 0;
+}
+.deux_collections .SUB_collections .btn_close .btn_close_span {
+  padding: 10px 10px;
+  border-radius: 50%;
+  margin-bottom: -30px;
+  color: white;
+}
+.deux_collections .collection_congolaise {
+  margin-top: -30px;
+}
+.deux_collections .collection_congolaise,
+.deux_collections .collection_etrangère {
+  border-radius: 60px;
+  padding: 13px 60px;
+  font-size: 18px;
+  background-color: #c04a4a;
+  transition: 0.1s;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #ffffff !important;
+  font-size: 14px;
+}
+@media (max-width: 1000px) {
+  .deux_collections .collection_congolaise,
+  .deux_collections .collection_etrangère {
+    padding: 20px 60px;
+  }
+}
+.deux_collections .proposal_action:hover {
+  border-radius: 60px;
+  border: none;
+  padding: 10px 20px;
+  background-color: #893232;
+  padding: 10px 35px;
+  transition: 0.1s;
+  font-size: 17px;
+  color: #ffffff !important;
+}
+
+.oeuvres {
+  position: relative;
+  width: 100%;
+  margin-top: 20px !important;
+}
+.oeuvres h5 {
+  padding-left: 15%;
   padding-bottom: 20px;
 }
 
-.default_div {
-  width: 65%;
-  margin-top: 60px;
+.height_70 {
+  height: 90px;
+}
+
+.cards_container_n {
+  width: 70%;
+}
+.cards_container_n .titre_d_oeuvre {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-shape-divider-bottom-1675346632 {

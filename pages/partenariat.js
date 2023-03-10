@@ -26,8 +26,7 @@ export default function partenariat() {
         <Navbar />
         <Other_banner
           title="Partenariat"
-          subtitle="Bienvenue sur notre portail de partenariat"
-          action="Devenir partenaire"
+          // subtitle="Bienvenue sur notre portail de partenariat"
         ></Other_banner>
         <div className={styles.default_div}>
           Bienvenue sur notre portail de partenariat, Livraze est encore trop

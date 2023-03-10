@@ -14,7 +14,10 @@ import Carte_pour_livre from "@/components/collection_congolaise";
 
 import Link from "next/link";
 
+import Popup_collections from "@/components/popup_collections";
+
 export default function Home({ livres_a, livres }) {
+  const [buttonPopup, setButtonPopup] = useState(false);
   return (
     <>
       <Head>
@@ -26,6 +29,21 @@ export default function Home({ livres_a, livres }) {
       <Nav_bar />
 
       <main className={styles.main}>
+        <Popup_collections trigger={buttonPopup} setTrigger={setButtonPopup}>
+          <Link
+            href="../collection-congolaise"
+            className="collection_congolaise"
+          >
+            COLLECTION CONGOLAISE →
+          </Link>
+          <Link
+            href="../collection-internationale"
+            className="collection_etrangère"
+          >
+            COLLECTION ETRANGRERE →
+          </Link>
+        </Popup_collections>
+
         <div className="call_to_action_don_livre">
           <div className={styles.proposal}>
             <h1>
@@ -43,22 +61,22 @@ export default function Home({ livres_a, livres }) {
             </Link>
           </div>
         </div>
-
         <div className={styles.app_container}>
           <Homebaner />
           <div className="top_cinq_titre">
             <h3>Nos collections les plus récentes</h3>
-            Tous nos livres sont en dur...
+            Tous nos livres sont en dur ... 
           </div>
           <div className={styles.relative_bloc}>
             <div className="cards_container">
-              {livres?.livres?.slice(0, 10)?.map((item, index) => (
+              {livres?.livres?.slice(0, 16)?.map((item, index) => (
                 <Link href={`../livres/${item.id}`}>
                   <Carte_pour_livre
                     key={index}
-                    nom_auteur={item.auteur}
+                    nom_auteur={item.nom}
                     auteur_img_src="/icons/ecrivain.png"
                     titre_l={item.titre}
+                    maison_edit={item.maison_d_edition}
                     livre_img_src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
                   />
                 </Link>
@@ -66,7 +84,12 @@ export default function Home({ livres_a, livres }) {
             </div>
           </div>
           <div className={styles.call_to_action}>
-            <Link href="collection-congolaise">Voir toute la collection →</Link>
+            <button
+              onClick={() => setButtonPopup(true)}
+              className="button_for_popup"
+            >
+              Voir toutes Nos collections →
+            </button>
           </div>
 
           <div className="intro_soiree_container">
@@ -74,8 +97,8 @@ export default function Home({ livres_a, livres }) {
             <div className="section_text">
               <div className="DATE">
                 <div className="jour">
-                  18
-                  <div className="mois">janvier</div>{" "}
+                  30
+                  <div className="mois">mars</div>{" "}
                 </div>{" "}
               </div>
               <h2>
@@ -101,28 +124,34 @@ export default function Home({ livres_a, livres }) {
             </div>
           </div>
         </div>
-
         <div className={styles.our_collection}>
-          <div className="titre_section mt-5">
-            <h5>Voir aussi</h5>
+          <div className="top_cinq_titre">
+            <h3>Nos collections les plus aimées</h3>
+            Tous nos livres sont en dur...
           </div>
+
           <div className="cards_container">
-            {livres?.livres?.slice(10, 20)?.map((item, index) => (
+            {livres?.livres?.slice(18, 34)?.map((item, index) => (
               <Link href={`../livres/${item.id}`}>
                 <Carte_pour_livre
                   key={index}
-                  nom_auteur={item.auteur}
+                  nom_auteur={item.nom}
                   auteur_img_src="/icons/ecrivain.png"
                   titre_l={item.titre}
+                  //livre_img_src={`http://localhost/fidbagraphics/2023/janvier/livraze/back-office/Views/uploads-images/nos_livres/${item.couverture}`}
+
                   livre_img_src={`http://livraze-admin.ritach.net/Views/uploads-images/nos_livres/${item.couverture}`}
                 />
               </Link>
             ))}
           </div>
           <div className={styles.call_to_action}>
-            <Link href="collection-congolaise">
-              Voir toutes les collections →
-            </Link>
+            <button
+              onClick={() => setButtonPopup(true)}
+              className="button_for_popup"
+            >
+              Voir toutes Nos collections →
+            </button>
           </div>
 
           <br />
@@ -142,9 +171,10 @@ export const getServerSideProps = async () => {
   const congo = await fetch(
     "http://livraze-admin.ritach.net/api-v1?datas=livres_congolais"
   );
+
   const livres = await res.json();
   const livres_a = await congo.json();
-  console.log("livres_a:", livres_a);
+
   return {
     props: {
       livres,

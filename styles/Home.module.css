@@ -18,7 +18,8 @@
   font-family: var(--font-mono);
   /* min-height: 100vh;*/
   background-color: #ffffff;
-  margin-bottom: 380px;
+  margin-bottom: 280px;
+
   border-radius: 0 0 30px 30px;
   overflow: hidden;
 }
@@ -28,6 +29,11 @@
 }
 .containerIframe {
   width: 100% !important;
+}
+@media (max-width: 782px) {
+  .app_container {
+    margin-bottom: 250px;
+  }
 }
 @media (min-width: 994px) and (max-width: 1384px) {
   .standard_header {
@@ -121,11 +127,18 @@
 .cover_bloc_soiré p {
   margin-bottom: 200px;
   position: absolute;
-  padding-top: 100px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
   width: 100%;
   height: 100%;
   text-align: center;
   color: #ffffff;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-left: 80px;
+  padding-top: 80px;
   background-color: #072831da;
 }
 
