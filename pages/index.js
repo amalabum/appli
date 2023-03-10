@@ -40,7 +40,7 @@ export default function Home({ livres_a, livres }) {
             href="../collection-internationale"
             className="collection_etrangère"
           >
-            COLLECTION ETRANGRERE →
+            COLLECTION ETRANGERE →
           </Link>
         </Popup_collections>
 
