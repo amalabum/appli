@@ -38,7 +38,7 @@ export default function detai_livre({ livres, auteur, livresannexs }) {
             href="../collection-internationale"
             className="collection_etrangère"
           >
-            COLLECTION ETRANGRERE →
+            COLLECTION ETRANGERE →
           </Link>
         </Popup_collections>
 
